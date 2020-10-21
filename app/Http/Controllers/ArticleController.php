@@ -10,13 +10,13 @@ class ArticleController extends Controller
 	#metodo get
     public function index()
     {
-    	return $articles = Article::all();
+    	return $articles = Article::all(); #select * from articles
     }
 
     #metodo get
     public function show(Article $article)
     {
-    	return $article;
+    	return $article; # select * from articles where id = ?
     }
 
     #metodo get
@@ -28,7 +28,7 @@ class ArticleController extends Controller
     #metodo post
     public function store(Request $request)
     {
-    	$article = Article::create($request->all());
+    	$article = Article::create($request->all());#insert into articles (title,body) values(?,?)
 
     	return response()->json($article, 201);
     }
@@ -36,7 +36,7 @@ class ArticleController extends Controller
     #metodo put
     public function update(Request $request, Article $article)
     {
-    	$article->update($request->all());
+    	$article->update($request->all());#update articles set title = ?, body = ? where id = ?
 
     	return response()->json($article, 200);
     }
@@ -44,7 +44,7 @@ class ArticleController extends Controller
     #metodo delete
     public function delete(Article $article)
     {
-    	$article->delete();
+    	$article->delete();#delete from articles where id = ?
 
     	return response()->json(null, 204);
     }
