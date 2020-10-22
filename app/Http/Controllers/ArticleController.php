@@ -25,6 +25,12 @@ class ArticleController extends Controller
     	return $article;
     }
 
+    #metodo get: listar los articulos con sus comentarios
+    public function articleComments()
+    {
+        return $articles = Article::with('comments')->get();
+    }
+
     #metodo post
     public function store(Request $request)
     {
