@@ -11,13 +11,15 @@ class ArticleController extends Controller
 	#metodo get
     public function index()
     {
+        #eloquent
     	return $articles = Article::all(); #select * from articles
     }
 
     #metodo get
     public function show(Article $article)
     {
-    	return $article; # select * from articles where id = ?
+        # select * from articles join comments on article.id = comments.article_id where articles.id = ?
+    	return $article = Article::with('comments')->find($article);
     }
 
     #metodo get
@@ -43,7 +45,7 @@ class ArticleController extends Controller
     #metodo put
     public function update(Request $request, Article $article)
     {
-    	$article->update($request->all());#update articles set title = ?, body = ? where id = ?
+    	$article->update($request->all());# update articles set title = ?, body = ? where id = ?
 
     	return response()->json($article, 200);
     }

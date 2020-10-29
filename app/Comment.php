@@ -12,3 +12,4 @@ class Comment extends Model
 		return $this->belongsTo(Article::class);
 	}
 }
+# select * from comments join articles on comments.article_id = articles.id

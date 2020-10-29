@@ -27,5 +27,7 @@ Route::post('articles','ArticleController@store');
 Route::put('articles/{article}','ArticleController@update');
 Route::delete('articles/{article}','ArticleController@delete');
 
-
 Route::post('comments/{article}','CommentController@setComment');
+Route::put('comments/{comment}','CommentController@update');
+Route::delete('comments/{comment}','CommentController@delete');
+
